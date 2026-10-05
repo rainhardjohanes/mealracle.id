@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mealracle | Premium Healthy Catering</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* PERBAIKAN BUG WARNA: Menggunakan sintaks CSS Variable yang benar */
+            --primary-blue: #174296; 
+            --secondary-blue: #103070;
+            --accent-yellow: #FFCC00; 
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f4f7fb;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px -5px rgba(23, 66, 150, 0.15);
+            --transition: all 0.3s ease;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; width: 100%; }
+
+        .font-poster { font-family: 'Anton', sans-serif; text-transform: uppercase; }
+        .font-elegant { font-family: 'Playfair Display', serif; font-style: italic; }
+
+        section { padding: 90px 5%; }
+        .section-title { text-align: center; max-width: 650px; margin: 0 auto 50px auto; }
+        .section-title span { color: var(--accent-yellow); font-weight: 800; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; display: inline-block; margin-bottom: 12px; background: var(--primary-blue); padding: 4px 15px; border-radius: 50px; }
+        .section-title h2 { font-size: clamp(28px, 5vw, 45px); font-weight: 900; color: var(--primary-blue); line-height: 1.2; letter-spacing: -1px; }
+
+        /* Nav & Header */
+        .top-bar { background: var(--accent-yellow); color: var(--primary-blue); text-align: center; padding: 10px 20px; font-size: 12px; font-weight: 800; letter-spacing: 0.5px; }
+        header { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm); }
+        .logo-badge { display: flex; align-items: center; }
+        .logo-badge img { height: 45px; width: auto; transition: var(--transition); }
+        .logo-badge:hover img { transform: scale(1.05); }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav ul li a { color: var(--text-dark); text-decoration: none; font-weight: 700; font-size: 14px; transition: var(--transition); }
+        nav ul li a:hover { color: var(--primary-blue); }
+        .btn-order-nav { background-color: var(--primary-blue); color: var(--accent-yellow); padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 14px; transition: var(--transition); border: 2px solid var(--primary-blue); cursor: pointer; }
+        .btn-order-nav:hover { background-color: var(--accent-yellow); color: var(--primary-blue); }
+
+        /* HERO SECTION */
+        .hero { background-color: var(--primary-blue); min-height: 90vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 0 5%; }
+        .hero-container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1300px; z-index: 2; position: relative; }
+        .hero-visual { flex: 1; position: relative; height: 600px; display: flex; align-items: center; justify-content: flex-start; }
+        .hero-plate { width: 600px; height: 600px; border-radius: 50%; object-fit: cover; clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); position: absolute; left: -100px; box-shadow: 20px 0 50px rgba(0,0,0,0.3); border: 15px solid white; background: white; }
+        .hero-content { flex: 1.2; padding-left: 20px; }
+        .hero-content h1 { font-size: clamp(55px, 10vw, 140px); line-height: 0.85; color: var(--accent-yellow); margin-bottom: 25px; text-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
+        .hero-sub { margin-bottom: 35px; }
+        .hero-sub h3 { color: var(--accent-yellow); font-size: clamp(24px, 4vw, 32px); margin-bottom: 5px; }
+        .hero-sub p { color: var(--white); font-size: clamp(16px, 2vw, 20px); opacity: 0.9; max-width: 400px; line-height: 1.4; }
+        .btn-hero { background-color: var(--accent-yellow); color: var(--primary-blue); padding: 15px 40px; font-size: 16px; font-weight: 900; text-decoration: none; border-radius: 50px; display: inline-block; transition: var(--transition); text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(255, 204, 0, 0.3); cursor: pointer; border: none; }
+        .btn-hero:hover { transform: scale(1.05); background-color: var(--white); }
+
+        /* BOX SHOWCASE */
+        .box-showcase { background: var(--white); display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        .box-text { flex: 1; }
+        .box-text h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; color: var(--primary-blue); line-height: 1.1; margin-bottom: 20px; }
+        .box-text p { color: var(--text-muted); font-size: 15px; margin-bottom: 30px; }
+        .box-features { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+        .box-features li { display: flex; gap: 15px; align-items: flex-start; }
+        .box-icon { width: 45px; height: 45px; background: var(--accent-yellow); color: var(--primary-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; font-weight: 900; }
+        .box-desc h4 { font-size: 16px; font-weight: 800; color: var(--text-dark); margin-bottom: 4px; }
+        .box-desc p { font-size: 14px; color: var(--text-muted); }
+        .box-image-wrapper { flex: 1; position: relative; display: flex; justify-content: center; width: 100%; }
+        .box-mockup { width: 100%; max-width: 450px; aspect-ratio: 1 / 1; background: var(--primary-blue); border-radius: 20px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 20px 40px rgba(23, 66, 150, 0.25); transform: perspective(1000px) rotateY(-15deg) rotateX(5deg); transition: var(--transition); }
+        .box-mockup img.box-logo { width: 160px; height: auto; margin-bottom: 25px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
+        .grid-sekat { display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; width: 100%; flex: 1; border: 4px solid var(--accent-yellow); padding: 8px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); }
+        .sekat-item { background: rgba(255, 204, 0, 0.15); border: 2px dashed rgba(255, 204, 0, 0.5); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--accent-yellow); letter-spacing: 1px; }
+
+        /* KALKULATOR BODY GOALS */
+        .bmi-section { background: var(--bg-light); }
+        .bmi-container { display: flex; flex-wrap: wrap; gap: 30px; max-width: 1000px; margin: 0 auto; background: var(--white); border-radius: 24px; padding: 40px; box-shadow: var(--shadow-sm); border: 1px solid #e2e8f0; }
+        .bmi-interactive-form { flex: 1; min-width: 100%; }
+        @media(min-width: 768px) { .bmi-interactive-form { min-width: 320px; } }
+        .slider-group { margin-bottom: 25px; }
+        .slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .slider-header label { font-weight: 800; color: var(--primary-blue); font-size: 14px; }
+        .slider-value { font-size: 18px; font-weight: 900; color: var(--primary-blue); background: var(--accent-yellow); padding: 5px 12px; border-radius: 8px; }
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]:focus { outline: none; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8px; cursor: pointer; background: #e2e8f0; border-radius: 10px; }
+        input[type=range]::-webkit-slider-thumb { height: 24px; width: 24px; border-radius: 50%; background: var(--accent-yellow); cursor: pointer; -webkit-appearance: none; margin-top: -8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 3px solid var(--primary-blue); }
+        .btn-calc { width: 100%; background: var(--primary-blue); color: var(--accent-yellow); padding: 15px; border: none; border-radius: 12px; font-weight: 800; font-size: 15px; cursor: pointer; transition: var(--transition); display: flex; justify-content: center; align-items: center; gap: 10px; text-transform: uppercase; }
+        .bmi-result-panel { flex: 1; min-width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 25px 15px; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; }
+        @media(min-width: 768px) { .bmi-result-panel { min-width: 320px; } }
+        .bmi-initial-state i { font-size: 35px; color: #cbd5e1; margin-bottom: 10px; display: block; }
+        .bmi-active-state { display: none; width: 100%; animation: zoomIn 0.4s ease; }
+        .bmi-active-state.show { display: block; }
+        .bmi-number-display { font-size: clamp(45px, 10vw, 60px); font-weight: 900; line-height: 1; margin-bottom: 5px; font-family: 'Anton', sans-serif; }
+        .bmi-category-badge { display: inline-block; padding: 6px 18px; border-radius: 50px; font-weight: 800; font-size: 13px; text-transform: uppercase; margin-bottom: 20px; color: white; }
+        .scale-container { width: 100%; height: 10px; background: linear-gradient(90deg, #3498db 0%, #2ecc71 40%, #2ecc71 60%, #e74c3c 100%); border-radius: 10px; position: relative; margin-bottom: 15px; }
+        .scale-marker { position: absolute; top: -8px; width: 4px; height: 26px; background: var(--text-dark); border-radius: 2px; transition: left 1s ease; left: 0%; transform: translateX(-50%); }
+        .bmi-marketing-msg { background: var(--white); padding: 15px; border-radius: 12px; font-size: 13px; color: var(--text-dark); font-weight: 600; border: 1px solid #e2e8f0; line-height: 1.5; }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+        /* PRICING */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+        .pricing-card { background: var(--white); border-radius: 20px; padding: 40px 30px; position: relative; border: 1px solid #e2e8f0; box-shadow: var(--shadow-sm); }
+        .pricing-card.featured { border: 3px solid var(--primary-blue); box-shadow: var(--shadow-lg); }
+        .popular-badge { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: var(--accent-yellow); color: var(--primary-blue); padding: 8px 20px; font-size: 11px; font-weight: 900; border-radius: 50px; text-transform: uppercase; white-space: nowrap; }
+        .pricing-card h3 { font-family: 'Anton', sans-serif; font-size: 28px; color: var(--primary-blue); letter-spacing: 1px; margin-bottom: 5px; }
+        .price-box { margin: 15px 0; border-bottom: 2px dashed #e2e8f0; padding-bottom: 15px; }
+        .price-box .amount { font-family: 'Anton', sans-serif; font-size: 50px; color: var(--primary-blue); line-height: 1; }
+        .pricing-features { list-style: none; margin: 25px 0 35px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+        .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-weight: 600; }
+        .pricing-features i { color: var(--accent-yellow); font-size: 16px; background: var(--primary-blue); border-radius: 50%; padding: 2px; }
+        .btn-pricing { width: 100%; padding: 15px; border-radius: 50px; text-align: center; font-weight: 900; background: var(--bg-light); color: var(--primary-blue); display: block; border: 2px solid transparent; font-size: 14px; text-transform: uppercase; cursor: pointer; transition: var(--transition); }
+        .pricing-card.featured .btn-pricing { background: var(--primary-blue); color: var(--accent-yellow); }
+        .btn-pricing:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* REVIEW */
+        .social-proof-section { background: var(--bg-light); border-top: 1px solid #e2e8f0; }
+        .social-proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+        .review-card { background: var(--white); border-radius: 20px; padding: 25px; box-shadow: var(--shadow-sm); border: 1px solid #e2e8f0; position: relative; }
+        .reviewer-info { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .reviewer-img { width: 50px; height: 50px; border-radius: 50%; background: var(--primary-blue); display: flex; align-items: center; justify-content: center; color: var(--accent-yellow); font-weight: 900; font-size: 20px; }
+        .reviewer-name h4 { font-size: 15px; font-weight: 800; color: var(--primary-blue); }
+        .reviewer-name p { font-size: 12px; color: var(--text-muted); }
+        .stars { color: var(--accent-yellow); font-size: 13px; margin-bottom: 10px; }
+        .review-text { font-size: 14px; color: var(--text-dark); font-style: italic; line-height: 1.6; }
+        .platform-icon { position: absolute; top: 25px; right: 25px; font-size: 18px; color: #cbd5e1; }
+
+        /* CABANG & COVERAGE (DIPERBARUI) */
+        .branches-section { background: var(--white); }
+        
+        /* Banner Visual 7 Kota */
+        .expansion-banner { display: flex; align-items: center; justify-content: center; gap: 20px; background: var(--primary-blue); color: var(--white); max-width: 600px; margin: 0 auto 40px auto; padding: 20px; border-radius: 16px; box-shadow: 0 10px 25px rgba(23, 66, 150, 0.2); border: 2px solid var(--accent-yellow); }
+        .expansion-number { font-family: 'Anton', sans-serif; font-size: 60px; color: var(--accent-yellow); line-height: 1; }
+        .expansion-text { font-size: 15px; line-height: 1.4; }
+        .expansion-text strong { font-size: 18px; letter-spacing: 0.5px; }
+
+        .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; max-width: 1000px; margin: 0 auto; }
+        .branch-card { background: var(--bg-light); border-radius: 16px; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; border: 1px solid #e2e8f0; }
+        .branch-icon { width: 45px; height: 45px; background: rgba(23, 66, 150, 0.05); color: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .branch-card h3 { font-size: 14px; font-weight: 800; color: var(--primary-blue); text-transform: uppercase; }
+        
+        /* Style Spesial Untuk Card "Segera Hadir" */
+        .branch-card.coming-soon { background: transparent; border: 2px dashed #cbd5e1; box-shadow: none; }
+        .branch-card.coming-soon .branch-icon { background: #f1f5f9; color: #94a3b8; }
+        .branch-card.coming-soon h3 { color: #64748b; }
+
+        /* FAQ */
+        .faq-container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+        .faq-item { background: var(--white); border-radius: 12px; border: 1px solid #e2e8f0; }
+        .faq-question { padding: 20px; font-weight: 800; color: var(--primary-blue); font-size: 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: var(--text-muted); font-weight: 500; font-size: 14px; }
+        .faq-answer-inner { padding-bottom: 20px; }
+
+        /* Floating WA & Footer */
+        .floating-wa { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4); z-index: 9999; text-decoration: none; border: 2px solid white; transition: var(--transition); }
+        .floating-wa:hover { transform: scale(1.1); }
+        
+        footer { background: var(--bg-light); color: var(--text-dark); padding: 50px 5% 30px; text-align: center; border-top: 1px solid #e2e8f0; }
+        footer img.footer-logo { height: 75px; width: auto; margin-bottom: 10px; filter: grayscale(100%) opacity(0.5); }
+
+        /* =========================================
+           SMART ORDER MODAL (POP-UP)
+           ========================================= */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); z-index: 9999; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        
+        .modal-content { background: var(--white); width: 90%; max-width: 480px; border-radius: 24px; padding: 35px 30px; position: relative; border: 4px solid var(--primary-blue); box-shadow: 0 25px 50px rgba(0,0,0,0.3); transform: translateY(20px); transition: transform 0.3s ease; max-height: 90vh; overflow-y: auto; }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        
+        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 24px; color: #94a3b8; cursor: pointer; transition: 0.2s; }
+        .close-modal:hover { color: var(--e74c3c); transform: rotate(90deg); }
+        
+        .modal-header { text-align: center; margin-bottom: 25px; }
+        .modal-header h3 { font-family: 'Anton', sans-serif; font-size: 28px; color: var(--primary-blue); letter-spacing: 1px; line-height: 1.1; }
+        .modal-header p { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 800; font-size: 13px; color: var(--primary-blue); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-group select, .form-group input { width: 100%; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-dark); background: #f8fafc; outline: none; transition: 0.3s; }
+        .form-group select:focus, .form-group input:focus { border-color: var(--primary-blue); background: white; }
+        
+        .bmi-modal-box { background: rgba(255, 204, 0, 0.1); border: 2px dashed var(--accent-yellow); border-radius: 16px; padding: 20px; margin-bottom: 25px; }
+        .bmi-modal-box .slider-group { margin-bottom: 15px; }
+        
+        .modal-bmi-result { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.05); }
+        .modal-bmi-result span { font-size: 13px; font-weight: 700; color: var(--text-muted); }
+        .modal-bmi-result .res-val { font-size: 22px; font-weight: 900; color: var(--primary-blue); font-family: 'Anton', sans-serif; }
+        
+        .btn-submit-order { width: 100%; background: var(--primary-blue); color: var(--accent-yellow); font-weight: 900; font-size: 16px; padding: 16px; border: none; border-radius: 12px; cursor: pointer; text-transform: uppercase; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .btn-submit-order:hover { background: var(--accent-yellow); color: var(--primary-blue); }
+
+        /* MOBILE RES. */
+        @media (max-width: 992px) {
+            section { padding: 60px 5%; } 
+            header { padding: 12px 5%; }
+            .logo-badge img { height: 35px; }
+            nav ul { display: none; } 
+            
+            .hero { padding: 80px 5% 50px; text-align: center; height: auto; min-height: auto; }
+            .hero-container { flex-direction: column; padding-top: 10px; }
+            .hero-visual { width: 100%; height: auto; justify-content: center; margin-bottom: 30px; }
+            .hero-plate { position: relative; left: 0; clip-path: none; width: 250px; height: 250px; border-width: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+            .hero-content { padding-left: 0; width: 100%; display: flex; flex-direction: column; align-items: center; }
+            .hero-content h1 { font-size: clamp(50px, 16vw, 80px); line-height: 0.95; margin-bottom: 15px; }
+            
+            .box-showcase { flex-direction: column; text-align: center; gap: 30px; }
+            .box-features li { flex-direction: column; align-items: center; text-align: center; }
+            .box-mockup { transform: none !important; width: 100%; max-width: 340px; padding: 25px; }
+            .box-mockup img.box-logo { width: 130px; margin-bottom: 15px; }
+
+            .pricing-card.featured { transform: scale(1); }
+            .bmi-container { padding: 25px 15px; }
+            
+            /* Banner Ekspansi Responsif */
+            .expansion-banner { flex-direction: column; text-align: center; padding: 15px; gap: 10px; margin-bottom: 30px; }
+            
+            .branches-grid { grid-template-columns: repeat(2, 1fr); }
+            footer img.footer-logo { height: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">PROMO: FREE ONGKIR RADIUS 3 KM. AMANKAN SLOT KATERING ANDA!</div>
+
+    <header>
+        <a href="#home" class="logo-badge">
+            <img src="Mealracle_Logo_Final-01 (1).png" alt="Mealracle Logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#box">Packaging</a></li>
+                <li><a href="#bmi">Kalkulator</a></li>
+                <li><a href="#paket">Harga</a></li>
+                <li><a href="#testi">Review</a></li>
+                <li><a href="#cabang">Area</a></li>
+            </ul>
+        </nav>
+        <button class="btn-order-nav btn-trigger-modal" data-paket="Konsultasi Dulu">Order Now!</button>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-visual">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Healthy Plate" class="hero-plate">
+            </div>
+            <div class="hero-content">
+                <h1 class="font-poster">FUEL<br>YOUR<br>BODY<br>RIGHT</h1>
+                <div class="hero-sub">
+                    <h3 class="font-elegant">Starting From 38K</h3>
+                    <p class="font-elegant">Delicious food that makes you feel good from the inside out.</p>
+                </div>
+                <button class="btn-hero btn-trigger-modal" data-paket="Konsultasi Dulu">Order Now!</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="box-showcase" id="box">
+        <div class="box-text">
+            <h2>The Mealracle<br>Box Experience</h2>
+            <p>Kemasan khusus yang menjaga makanan higienis, dan memberikan pengalaman bersantap berkelas di mana pun Anda berada.</p>
+            <ul class="box-features">
+                <li>
+                    <div class="box-icon"><i class="fa-solid fa-border-all"></i></div>
+                    <div class="box-desc"><h4>4 Sekat Terpisah (Divider)</h4><p>1 bagian nasi & 3 bagian lauk. Rasa tidak bercampur.</p></div>
+                </li>
+                <li>
+                    <div class="box-icon"><i class="fa-solid fa-lock"></i></div>
+                    <div class="box-desc"><h4>Locking Lid System</h4><p>Konstruksi interlock kokoh dan anti-tumpah.</p></div>
+                </li>
+            </ul>
+        </div>
+        <div class="box-image-wrapper">
+            <div class="box-mockup">
+                <img src="Mealracle_Logo_Final-01 (1).png" alt="Mealracle Logo" class="box-logo">
+                <div class="grid-sekat">
+                    <div class="sekat-item">NASI</div><div class="sekat-item">LAUK 1</div>
+                    <div class="sekat-item">LAUK 2</div><div class="sekat-item">LAUK 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bmi-section" id="bmi">
+        <div class="section-title">
+            <span>Kenali Tubuh Anda</span>
+            <h2>Kalkulator Body Goals</h2>
+        </div>
+        <div class="bmi-container">
+            <div class="bmi-interactive-form">
+                <div class="slider-group">
+                    <div class="slider-header"><label>Tinggi Badan</label><div class="slider-value"><span id="mainHeightVal">170</span> cm</div></div>
+                    <input type="range" id="mainHeight" min="140" max="210" value="170">
+                </div>
+                <div class="slider-group" style="margin-bottom: 30px;">
+                    <div class="slider-header"><label>Berat Badan</label><div class="slider-value"><span id="mainWeightVal">65</span> kg</div></div>
+                    <input type="range" id="mainWeight" min="40" max="150" value="65">
+                </div>
+                <button id="btnAnalyzeMain" class="btn-calc"><i class="fa-solid fa-calculator"></i> Hitung Body Goals Saya</button>
+            </div>
+            
+            <div class="bmi-result-panel">
+                <div id="bmiInitial" class="bmi-initial-state">
+                    <i class="fa-solid fa-fingerprint"></i>
+                    <p style="font-size: 13px;">Geser slider dan klik hitung untuk mengetahui metrik tubuh Anda.</p>
+                </div>
+                <div id="bmiActive" class="bmi-active-state">
+                    <div id="mainBmiScore" class="bmi-number-display">0.0</div>
+                    <div id="mainBmiCategory" class="bmi-category-badge" style="background: #2ecc71;">Normal</div>
+                    <div class="scale-container"><div id="scaleMarker" class="scale-marker"></div></div>
+                    
+                    <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; margin-bottom: 15px;">
+                        <span style="font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Estimasi Berat Ideal Anda:</span><br>
+                        <span id="idealWeightText" style="font-size: 18px; font-weight: 900; color: var(--primary-blue);">0 kg - 0 kg</span>
+                    </div>
+
+                    <div id="bmiMessage" class="bmi-marketing-msg">Hasil analisa akan muncul di sini.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="paket" style="background: white;">
+        <div class="section-title"><span>Investasi Kesehatan</span><h2>Pilih Paket Transformasi</h2></div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Paket 1 Minggu</h3>
+                <p style="color: var(--text-muted); font-weight: 500; font-size: 13px;">Langkah awal membangun habit sehat.</p>
+                <div class="price-box"><span class="amount">48K</span> <span style="font-weight: 700; color: #64748b;">/ meal</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Menu rotasi harian bervariasi</li>
+                    <li><i class="fa-solid fa-check"></i> Box 4 Sekat Premium</li>
+                    <li><i class="fa-solid fa-check"></i> Free Ongkir (Radius 3 KM)</li>
+                </ul>
+                <button class="btn-pricing btn-trigger-modal" data-paket="Paket 1 Minggu">Mulai 1 Minggu</button>
+            </div>
+            <div class="pricing-card featured">
+                <div class="popular-badge">Best Value & Hemat</div>
+                <h3>Paket 3 Bulan</h3>
+                <p style="color: var(--text-muted); font-weight: 500; font-size: 13px;">Komitmen hasil maksimal, hemat.</p>
+                <div class="price-box"><span class="amount">38K</span> <span style="font-weight: 700; color: #64748b;">/ meal</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Harga paling ekonomis</li>
+                    <li><i class="fa-solid fa-check"></i> Fitur "Pause" jadwal</li>
+                    <li><i class="fa-solid fa-check"></i> Free Ongkir (Radius 3 KM)</li>
+                </ul>
+                <button class="btn-pricing btn-trigger-modal" data-paket="Paket 3 Bulan">Kunci Harga Spesial</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof-section" id="testi">
+        <div class="section-title"><span>Social Proof</span><h2>Ribuan Profesional Memilih Kami</h2></div>
+        <div class="social-proof-grid">
+            <div class="review-card">
+                <i class="fa-brands fa-instagram platform-icon"></i>
+                <div class="reviewer-info">
+                    <div class="reviewer-img">S</div>
+                    <div class="reviewer-name"><h4>Sarah A.</h4><p>Corporate Lawyer, 27</p></div>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Penyelamat banget buat aku yang sibuk meeting. Box-nya premium, rasanya nggak hambar. Berlangganan 3 bulan worth it parah!"</p>
+            </div>
+            <div class="review-card">
+                <i class="fa-brands fa-tiktok platform-icon"></i>
+                <div class="reviewer-info">
+                    <div class="reviewer-img">R</div>
+                    <div class="reviewer-name"><h4>Rendi Putra</h4><p>Tech Entrepreneur, 31</p></div>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <p class="review-text">"Nutrisinya pas buat recovery abis gym. Fitur pause-nya berguna banget pas aku harus business trip ke luar kota seminggu."</p>
+            </div>
+            <div class="review-card">
+                <i class="fa-brands fa-instagram platform-icon"></i>
+                <div class="reviewer-info">
+                    <div class="reviewer-img">J</div>
+                    <div class="reviewer-name"><h4>Jessica M.</h4><p>Creative Director, 25</p></div>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Suka banget sama menu ayam basilnya. Gak berasa lagi makan sehat woy! Plus admin wa nya ramah banget bisa nanya-nanya alergi."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CABANG DENGAN BANNER EKSPANSI BARU -->
+    <section class="branches-section" id="cabang">
+        <div class="section-title"><span>Coverage Area</span><h2>Hadir Lebih Dekat</h2></div>
+        
+        <div class="expansion-banner">
+            <div class="expansion-number">7</div>
+            <div class="expansion-text">
+                <strong>Kota Besar di Indonesia</strong><br>
+                Ratusan porsi sehat diantar setiap harinya.
+            </div>
+        </div>
+
+        <div class="branches-grid">
+            <div class="branch-card"><div class="branch-icon"><i class="fa-solid fa-building"></i></div><h3>Jakarta</h3></div>
+            <div class="branch-card"><div class="branch-icon"><i class="fa-solid fa-leaf"></i></div><h3>Bogor</h3></div>
+            <div class="branch-card"><div class="branch-icon"><i class="fa-solid fa-mountain"></i></div><h3>Bandung</h3></div>
+            <div class="branch-card"><div class="branch-icon"><i class="fa-solid fa-umbrella-beach"></i></div><h3>Bali</h3></div>
+            <div class="branch-card"><div class="branch-icon"><i class="fa-solid fa-bridge"></i></div><h3>Surabaya</h3></div>
+            <div class="branch-card"><div class="branch-icon"><i class="fa-solid fa-water"></i></div><h3>Banjarmasin</h3></div>
+            <div class="branch-card"><div class="branch-icon"><i class="fa-solid fa-fish"></i></div><h3>Manado</h3></div>
+            
+            <!-- Tambahan Card Ekspansi -->
+            <div class="branch-card coming-soon">
+                <div class="branch-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+                <h3>Segera Hadir</h3>
+                <p style="font-size: 11px; margin-top: 5px; color: var(--text-muted); font-weight: 600;">Di kota Anda selanjutnya...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq" style="background: var(--white);">
+        <div class="section-title"><span>Pusat Bantuan</span><h2>FAQ</h2></div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Bisa skip/pause hari pengiriman? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Tentu! Khusus pelanggan Paket 3 Bulan, dapat melakukan "pause" pengiriman maksimal konfirmasi H-1 sebelum jam 12 siang.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Bisa request alergi makanan? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Bisa. Silakan beritahu tim Admin WhatsApp kami mengenai pantangan Anda saat pemesanan (misal: alergi seafood/kacang).</div></div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/6289636974140" class="floating-wa"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <footer>
+        <img src="Mealracle_Logo_Final-01 (1).png" alt="Mealracle Logo" class="footer-logo">
+        <p style="font-size: 14px; font-weight: 500;">Where Meals Make Miracles.</p>
+        <p style="margin-top: 15px; font-size: 12px; color: var(--text-muted);">&copy; 2026 Mealracle. All Rights Reserved.</p>
+    </footer>
+
+    <!-- =========================================
+         SMART ORDER MODAL (POP-UP)
+         ========================================= -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal"><i class="fa-solid fa-xmark"></i></span>
+            
+            <div class="modal-header">
+                <h3>MULAI SEKARANG</h3>
+                <p>Isi detail di bawah untuk cek ketersediaan slot di cabang terdekat Anda.</p>
+            </div>
+
+            <!-- Input Nama & WA -->
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" id="orderNama" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+                <label>Nomor WhatsApp</label>
+                <input type="tel" id="orderWA" placeholder="Contoh: 08123456789" required>
+            </div>
+
+            <div class="form-group">
+                <label>Pilihan Paket</label>
+                <select id="orderPaket">
+                    <option value="Paket 1 Minggu">Paket 1 Minggu (Mulai Awal)</option>
+                    <option value="Paket 3 Bulan">Paket 3 Bulan (Best Value)</option>
+                    <option value="Konsultasi Dulu">Saya Ingin Konsultasi Dulu</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Pilih Cabang Terdekat</label>
+                <select id="orderCabang">
+                    <option value="Jakarta">Jakarta (Jabodetabek)</option>
+                    <option value="Bogor">Bogor</option>
+                    <option value="Bandung">Bandung</option>
+                    <option value="Surabaya">Surabaya</option>
+                    <option value="Bali">Bali</option>
+                    <option value="Banjarmasin">Banjarmasin</option>
+                    <option value="Manado">Manado</option>
+                </select>
+            </div>
+
+            <!-- Mini BMI Slider in Modal -->
+            <div class="bmi-modal-box">
+                <label style="display: block; font-weight: 800; font-size: 13px; color: var(--primary-blue); margin-bottom: 12px; text-transform: uppercase;">Metrik Tubuh (Terintegrasi)</label>
+                
+                <div class="slider-group">
+                    <div class="slider-header"><label style="text-transform: none; font-size:12px;">Tinggi: <span id="modalHeightVal">170</span> cm</label></div>
+                    <input type="range" id="modalHeight" min="140" max="210" value="170">
+                </div>
+                <div class="slider-group" style="margin-bottom: 0;">
+                    <div class="slider-header"><label style="text-transform: none; font-size:12px;">Berat: <span id="modalWeightVal">65</span> kg</label></div>
+                    <input type="range" id="modalWeight" min="40" max="150" value="65">
+                </div>
+                
+                <div class="modal-bmi-result">
+                    <span>Hasil BMI Anda:</span>
+                    <div class="res-val" id="modalBmiScore">22.5</div>
+                </div>
+                <p id="modalBmiCategory" style="font-size: 11px; font-weight: 800; color: #2ecc71; text-align: right; margin-top: 5px; text-transform: uppercase;">NORMAL</p>
+            </div>
+
+            <button class="btn-submit-order" id="btnKirimWA">
+                <i class="fa-brands fa-whatsapp"></i> Lanjut ke WhatsApp Admin
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT: CACHING, FIRE & FORGET GOOGLE SHEETS, WA GENERATOR -->
+    <script>
+        /* 1. VARIABEL ELEMEN */
+        const mainHeight = document.getElementById('mainHeight');
+        const mainHeightVal = document.getElementById('mainHeightVal');
+        const mainWeight = document.getElementById('mainWeight');
+        const mainWeightVal = document.getElementById('mainWeightVal');
+        
+        const modalHeight = document.getElementById('modalHeight');
+        const modalHeightVal = document.getElementById('modalHeightVal');
+        const modalWeight = document.getElementById('modalWeight');
+        const modalWeightVal = document.getElementById('modalWeightVal');
+        const modalBmiScore = document.getElementById('modalBmiScore');
+        const modalBmiCategory = document.getElementById('modalBmiCategory');
+
+        /* 2. LOGIKA LOCAL STORAGE & SINKRONISASI */
+        window.onload = () => {
+            if(localStorage.getItem('mrcl_h')) {
+                const savedH = localStorage.getItem('mrcl_h');
+                const savedW = localStorage.getItem('mrcl_w');
+                
+                mainHeight.value = savedH; mainHeightVal.textContent = savedH;
+                mainWeight.value = savedW; mainWeightVal.textContent = savedW;
+                
+                modalHeight.value = savedH; modalHeightVal.textContent = savedH;
+                modalWeight.value = savedW; modalWeightVal.textContent = savedW;
+                
+                calculateModalBMI(); 
+            }
+        };
+
+        function saveToCache(h, w) {
+            localStorage.setItem('mrcl_h', h);
+            localStorage.setItem('mrcl_w', w);
+        }
+
+        mainHeight.addEventListener('input', (e) => { 
+            mainHeightVal.textContent = e.target.value; 
+            modalHeight.value = e.target.value; modalHeightVal.textContent = e.target.value;
+            saveToCache(e.target.value, mainWeight.value);
+            calculateModalBMI();
+        });
+        mainWeight.addEventListener('input', (e) => { 
+            mainWeightVal.textContent = e.target.value; 
+            modalWeight.value = e.target.value; modalWeightVal.textContent = e.target.value;
+            saveToCache(mainHeight.value, e.target.value);
+            calculateModalBMI();
+        });
+
+        modalHeight.addEventListener('input', (e) => { 
+            modalHeightVal.textContent = e.target.value;
+            mainHeight.value = e.target.value; mainHeightVal.textContent = e.target.value;
+            saveToCache(e.target.value, modalWeight.value);
+            calculateModalBMI();
+        });
+        modalWeight.addEventListener('input', (e) => { 
+            modalWeightVal.textContent = e.target.value;
+            mainWeight.value = e.target.value; mainWeightVal.textContent = e.target.value;
+            saveToCache(modalHeight.value, e.target.value);
+            calculateModalBMI();
+        });
+
+        function calculateModalBMI() {
+            const h = parseFloat(modalHeight.value) / 100;
+            const w = parseFloat(modalWeight.value);
+            const bmi = (w / (h * h)).toFixed(1);
+            modalBmiScore.textContent = bmi;
+            
+            if (bmi < 18.5) { modalBmiCategory.textContent = 'UNDERWEIGHT (Butuh Surplus)'; modalBmiCategory.style.color = '#3498db'; } 
+            else if (bmi >= 18.5 && bmi <= 24.9) { modalBmiCategory.textContent = 'IDEAL (Maintenance)'; modalBmiCategory.style.color = '#2ecc71'; } 
+            else { modalBmiCategory.textContent = 'OVERWEIGHT (Butuh Defisit)'; modalBmiCategory.style.color = '#e74c3c'; }
+        }
+
+        /* 3. LOGIKA KALKULATOR UTAMA */
+        document.getElementById('btnAnalyzeMain').addEventListener('click', () => {
+            const h = parseFloat(mainHeight.value) / 100;
+            const w = parseFloat(mainWeight.value);
+            const bmi = (w / (h * h)).toFixed(1);
+            
+            const minIdeal = (18.5 * (h * h)).toFixed(1);
+            const maxIdeal = (24.9 * (h * h)).toFixed(1);
+            document.getElementById('idealWeightText').textContent = `${minIdeal} kg - ${maxIdeal} kg`;
+
+            document.getElementById('bmiInitial').style.display = 'none';
+            document.getElementById('bmiActive').classList.add('show');
+
+            const scoreDisplay = document.getElementById('mainBmiScore');
+            const categoryBadge = document.getElementById('mainBmiCategory');
+            const messageTxt = document.getElementById('bmiMessage');
+            const marker = document.getElementById('scaleMarker');
+
+            scoreDisplay.textContent = bmi;
+
+            let color = '', pos = 0;
+            if (bmi < 18.5) {
+                categoryBadge.textContent = 'Underweight'; color = '#3498db';
+                messageTxt.innerHTML = 'Fokus pada <strong>Surplus Kalori</strong>. Anda butuh menaikkan berat badan ke angka ideal. Paket katering kami memastikan asupan makro yang pas untuk <em>bulking</em> sehat.';
+                pos = (bmi / 18.5) * 25;
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                categoryBadge.textContent = 'Ideal'; color = '#2ecc71';
+                messageTxt.innerHTML = 'Luar biasa! Berat badan Anda sudah proporsional. Pertahankan <strong>Body Goals</strong> Anda dengan rutinitas makan bergizi dari Mealracle.';
+                pos = 25 + (((bmi - 18.5) / 6.4) * 45);
+            } else {
+                categoryBadge.textContent = 'Overweight'; color = '#e74c3c';
+                messageTxt.innerHTML = 'Anda butuh <strong>Defisit Kalori</strong> bertahap. Mencapai berat ideal jadi jauh lebih mudah, praktis, dan lezat bersama Paket Transformasi 3 Bulan Mealracle.';
+                pos = 70 + (((bmi - 25) / 15) * 30);
+                if(pos > 100) pos = 100;
+            }
+
+            scoreDisplay.style.color = color;
+            categoryBadge.style.background = color;
+            setTimeout(() => { marker.style.left = pos + '%'; }, 100);
+        });
+
+        /* 4. MODAL & GOOGLE SHEETS (FIRE & FORGET) */
+        const modal = document.getElementById('orderModal');
+        const btnCloseModal = document.getElementById('closeModal');
+        const orderPaketSelect = document.getElementById('orderPaket');
+
+        document.querySelectorAll('.btn-trigger-modal').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const paket = button.getAttribute('data-paket');
+                if(paket) orderPaketSelect.value = paket;
+                
+                calculateModalBMI(); 
+                modal.classList.add('active');
+            });
+        });
+
+        btnCloseModal.addEventListener('click', () => modal.classList.remove('active'));
+        window.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+
+        // LOGIKA BARU: BUKA WA INSTAN, SIMPAN DATA DI BACKGROUND
+        document.getElementById('btnKirimWA').addEventListener('click', () => {
+            const nama = document.getElementById('orderNama').value;
+            const nowa = document.getElementById('orderWA').value;
+            const paket = document.getElementById('orderPaketSelect') ? document.getElementById('orderPaketSelect').value : document.getElementById('orderPaket').value;
+            const cabang = document.getElementById('orderCabang').value;
+            const h = document.getElementById('modalHeight').value;
+            const w = document.getElementById('modalWeight').value;
+            const bmiScore = document.getElementById('modalBmiScore').textContent;
+            const bmiCat = document.getElementById('modalBmiCategory').textContent;
+
+            // Validasi Data Diri
+            if (!nama || !nowa) {
+                alert("Mohon isi Nama Lengkap dan Nomor WhatsApp Anda terlebih dahulu.");
+                return;
+            }
+
+            // 1. FORMAT TEKS WHATSAPP & BUKA SECARA INSTAN
+            let text = `Halo Admin Mealracle, saya *${nama}* ingin konfirmasi pesanan katering:%0A%0A`;
+            text += `*Pilihan Paket:* ${paket}%0A`;
+            text += `*Pilihan Cabang:* ${cabang}%0A%0A`;
+            text += `*Info Metrik Tubuh (Untuk Nutrisi):*%0A`;
+            text += `- Tinggi: ${h} cm%0A`;
+            text += `- Berat: ${w} kg%0A`;
+            text += `- Status BMI: ${bmiScore} (${bmiCat})%0A%0A`;
+            text += `Mohon info ketersediaan slot dan instruksi pembayaran. Terima kasih!`;
+
+            const adminWA = "6289636974140"; 
+            const waLink = `https://wa.me/${adminWA}?text=${text}`;
+            
+            // Buka Tab WhatsApp Tanpa Jeda
+            window.open(waLink, '_blank');
+            
+            // Tutup Pop-Up Modal
+            modal.classList.remove('active');
+
+            // 2. KIRIM DATA KE GOOGLE SHEETS DI LATAR BELAKANG
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw1Z7kDTbbS8LBfjMiHyrkReCarTU9IYt9zpOR1FXV3DOw1i2cMWCiDnAZLJIpJvZ1zHQ/exec';
+            
+            const formData = {
+                nama: nama,
+                nowa: nowa,
+                paket: paket,
+                cabang: cabang,
+                tinggi: h,
+                berat: w,
+                bmiScore: bmiScore,
+                bmiCat: bmiCat
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => console.log('Data leads berhasil disimpan ke sistem!'))
+            .catch(error => console.error('Data leads gagal disimpan:', error));
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const active = document.querySelector('.faq-question.active');
+                if (active && active !== question) {
+                    active.classList.remove('active');
+                    active.nextElementSibling.style.maxHeight = null;
+                }
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                answer.style.maxHeight = question.classList.contains('active') ? answer.scrollHeight + "px" : null;
+            });
+        });
+    </script>
+</body>
+</html>
